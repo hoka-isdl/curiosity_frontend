@@ -1,18 +1,39 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/img/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <div v-for="(fish, index) in fishes"  :key="index">
+    <fish-card :image_url="fish.img_url" :fish_name="fish.name" :isPoisonous="fish.isPoisonous"></fish-card>
+    </div>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import FishCard from '../components/FishCard.vue'
 export default {
   name: 'HomeView',
   components: {
-    HelloWorld
+    FishCard
+  },
+
+  data(){
+    return{
+      fishes: [
+        {
+        img_url:"../assets/img/logo.png",
+        name:"アイゴ",
+        isPoisonous: true
+        },
+        {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      }
+    ]
   }
-}
+    }
+  }
+
 </script>
+
+<style>
+</style>
