@@ -1,10 +1,10 @@
 <template>
     <div id="card">
         <ul>
-            <img id="image" src="../assets/img/aigo.jpg" />
-            <div>{{ fish_name }}</div>
-            <div id="tag" v-if="isPoisonous == true">☠️</div>
-            <div id="tag" v-else>無毒</div>
+            <img id="image" src="../assets/img/aigo.jpg"/>
+            <div id="name">{{ fish_name }}</div>
+            <div id="tag-T" v-if="isPoisonous == true">☠️</div>
+            <div id="tag-F" v-else>☺️</div>
         </ul>
     </div>
 </template>
@@ -25,7 +25,6 @@ export default{
             required:true
         }
     }
-    
 }
 </script>
 
@@ -41,22 +40,45 @@ export default{
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25); 
     border-radius: 30px;
 }
-#tag{
+#tag-F{
     width: 61px; 
     height: 26px; 
-    left: 194px; 
-    top: 308px; 
-    position: relative; 
+    left: 270px; 
+    top: 300px; 
+    position: absolute; 
     background: #18A0FB; 
     border-radius: 25px;
 }
+
+#tag-T{
+    width: 61px; 
+    height: 26px; 
+    left: 270px; 
+    top: 300px; 
+    position: absolute; 
+    background: #fd1515; 
+    border-radius: 25px;
+}
+
 
 #image{
     width: 320px; 
     height: 225px; 
     left: 23px; 
     top: 28px; 
-    position: relative;
+    position: absolute;
+}
+#name{
+    width: 218px; 
+    height: 46px; 
+    left: 37px; 
+    top: 256px; 
+    position: absolute; 
+    color: black; 
+    font-size: 32px; 
+    font-family: Inter; 
+    font-weight: 400; 
+    word-wrap: break-word
 }
 
 </style>

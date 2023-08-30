@@ -1,11 +1,19 @@
 <template>
-  <nav>
+  <!-- <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </nav>
+  </nav> -->
+  <page-header></page-header>
   <router-view/>
 </template>
-
+<script>
+import PageHeader from "./components/PageHeader.vue"
+export default{
+  components:{
+    PageHeader
+  }
+}
+</script>
 <style>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

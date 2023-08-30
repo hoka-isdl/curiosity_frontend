@@ -1,9 +1,10 @@
 <template>
-  <div class="home">
-    <div v-for="(fish, index) in fishes"  :key="index">
+  <div class="home" id="box">
+    <div v-for="(fish, index) in fishes"  :key="index" >
     <fish-card :image_url="fish.img_url" :fish_name="fish.name" :isPoisonous="fish.isPoisonous"></fish-card>
     </div>
   </div>
+
 </template>
 
 <script>
@@ -19,11 +20,61 @@ export default {
     return{
       fishes: [
         {
-        img_url:"../assets/img/logo.png",
+        img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
         },
         {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+        },
+        {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+        },
+        {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
+        img_url:"../assets/img/aigo.jpg",
+        name:"マグロ",
+        isPoisonous: false
+        },
+        {
+        img_url:"../assets/img/aigo.jpg",
+        name:"アイゴ",
+        isPoisonous: true
+      },
+      {
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
@@ -35,5 +86,14 @@ export default {
 
 </script>
 
-<style>
+<style scoped>
+#box{
+  display: flex; /* flexbox */
+  flex-wrap: wrap; /* 折返し指定 */
+  gap: 20px 20px; /* 余白 */
+  justify-content: center;
+}
+
+
+
 </style>
