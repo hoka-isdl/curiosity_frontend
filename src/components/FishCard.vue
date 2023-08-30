@@ -1,5 +1,5 @@
 <template>
-    <div id="card">
+    <div id="card" @click="fishdetail()">
         <ul>
             <img id="image" src="../assets/img/aigo.jpg"/>
             <div id="name">{{ fish_name }}</div>
@@ -12,6 +12,10 @@
 <script>
 export default{
     props:{
+        id:{
+            type:Number,
+            required:true
+        },
         image_url:{
             type:String,
             required:true
@@ -23,6 +27,15 @@ export default{
         isPoisonous:{
             type:Boolean,
             required:true
+        }
+    },
+    data() {
+        return {
+        }
+    },
+    methods:{
+        fishdetail: function(){
+            this.$router.push({ path: '/fishdetail/' + this.id});
         }
     }
 }
