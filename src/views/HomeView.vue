@@ -20,61 +20,73 @@ export default {
     return{
       fishes: [
         {
+        id:1,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
         },
         {
+        id:2,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:3,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:4,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
         },
         {
+        id:5,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:6,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:7,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
         },
         {
+        id:8,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:9,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
-      {
+      { 
+        id:10,
         img_url:"../assets/img/aigo.jpg",
         name:"マグロ",
         isPoisonous: false
         },
         {
+        id:11,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
       },
       {
+        id:12,
         img_url:"../assets/img/aigo.jpg",
         name:"アイゴ",
         isPoisonous: true
