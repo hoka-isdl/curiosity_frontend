@@ -1,10 +1,17 @@
 <script>
-
 export default {
   name: 'FishDetail',
   data() {
         return {
           showContent: false,
+
+          status: 'ready',     // 状況
+          recorder: null,     // 音声にアクセスする "MediaRecorder" のインスタンス
+          audioData: [],      // 入力された音声データ
+          audioExtension: '',  // 音声ファイルの拡張子
+          audio: new Audio(require('../assets/audio/1693396146.webm')),
+          url: '',
+          imgstatus:false,
         }
     },
   methods:{
@@ -13,7 +20,59 @@ export default {
     },
     closeModal: function(){
       this.showContent = false
+    },
+    startRecording() {
+      this.status = 'recording';
+      this.audioData = [];
+      this.recorder.start();
+    },
+    stopRecording() {
+      this.recorder.stop();
+      this.status = 'ready';
+    },
+    getExtension(audioType) {
+      let extension = 'wav';
+      const matches = audioType.match(/audio\/([^;]+)/);
+
+      if(matches) {
+          extension = matches[1];
+      }
+      return '.'+ extension;
+    },
+    start: function(){
+      this.audio.play()
     }
+  },
+  mounted() {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+    .then(stream => {
+
+        this.recorder = new MediaRecorder(stream);
+        this.recorder.addEventListener('dataavailable', e => {
+
+            this.audioData.push(e.data);
+            this.audioExtension = this.getExtension(e.data.type);
+
+        });
+        this.recorder.addEventListener('stop', () => {
+
+            const audioBlob = new Blob(this.audioData);
+            // console.log(Math.floor(Date.now() / 1000) + this.audioExtension);
+            const url = URL.createObjectURL(audioBlob);
+            this.imgstatus=true;
+            this.url = url;
+            // const url = "";
+            let a = document.createElement('a');
+            a.href = url;
+            a.download = Math.floor(Date.now() / 1000) + this.audioExtension;
+            document.body.appendChild(a);
+            a.click();
+            console.log(a);
+
+        });
+        this.status = 'ready';
+
+    });
   }
 }
 </script>
@@ -52,13 +111,26 @@ export default {
         <img src="../assets/img/doraemon.png" style="width: 200px; height: 200px;">
         <p>何が聞きたいかな？？？？？</p>
       </div>
-      <button v-on:click="closeModal">Close</button>
+      <div style="text-align: center;">
+        <button class="soundbutton" v-if="status=='ready'" @click="startRecording">音声開始</button>
+        <button class="soundbutton" v-if="status=='recording'" @click="stopRecording">音声終了</button>
+        <!-- <audio v-if="status=='end'" controls>
+          <a href={{ this.url }}> Download audio </a>
+        </audio> -->
+      </div>
+      <audio :src="url" v-if="imgstatus" controls>
+        <!-- <a href={{ this.url }}> Download audio </a> -->
+      </audio>
+      <button v-on:click="start()">Close</button>
     </div>
     
   </div>
 </template>
 
 <style scoped>
+.soundbutton{
+  display:inline-block;
+}
 p{
   top:100%;
   left:30%;
