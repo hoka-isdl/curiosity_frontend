@@ -70,7 +70,8 @@ export default {
   flex-wrap: wrap; /* 折返し指定 */
   gap: 20px 20px; /* 余白 */
   justify-content: center;
-  background-image: url("@/assets/img/sea.jpeg");
+  background-image: url("@/assets/img/water-20.gif");
+  background-size: 100%;
   
 }
 
